@@ -63,7 +63,8 @@ class _MyHomePageState extends State<MyHomePage> {
     );
 
     final response = await http.post(
-      Uri.parse('http://localhost:8080/boards'),
+      Uri.parse('http://tellmebabydsm24.cafe24.com/boards'),
+      // Uri.parse('http://localhost:8080/boards'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -82,7 +83,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Future<void> _deleteBoard(int id) async {
     final response = await http.delete(
-      Uri.parse('http://localhost:8080/boards/$id'),
+      Uri.parse('http://tellmebabydsm24.cafe24.com/boards/$id'),
+      // Uri.parse('http://localhost:8080/boards/$id'),
     );
 
     if (response.statusCode == 200 || response.statusCode == 204) {
@@ -101,11 +103,13 @@ class _MyHomePageState extends State<MyHomePage> {
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(title,
-                  style: TextStyle(fontSize: 24.0),
+            Text(
+              title,
+              style: TextStyle(fontSize: 24.0),
             ),
-            Text('완료!!!',
-                  style: TextStyle(fontSize: 30.0),
+            Text(
+              '완료!!!',
+              style: TextStyle(fontSize: 30.0),
             ),
           ],
         ),
@@ -191,7 +195,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       children: [
                         TextField(
                           controller: _messageController,
-                          decoration: InputDecoration(labelText: 'Enter your message'),
+                          decoration:
+                              InputDecoration(labelText: 'Enter your message'),
                         ),
                         SizedBox(height: 16),
                         ElevatedButton(
@@ -262,7 +267,8 @@ class _BoardsDisplayState extends State<BoardsDisplay> {
   void _initializePositions() {
     final size = MediaQuery.of(context).size;
     setState(() {
-      _positions = List.generate(widget.boards.length, (index) => _randomPosition(size));
+      _positions =
+          List.generate(widget.boards.length, (index) => _randomPosition(size));
     });
   }
 

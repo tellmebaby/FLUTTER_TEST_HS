@@ -15,7 +15,9 @@ class BoardBloc extends Bloc<BoardEvent, BoardState> {
   void _onFetchBoards(FetchBoards event, Emitter<BoardState> emit) async {
     emit(BoardLoading());
     try {
-      final response = await http.get(Uri.parse('http://localhost:8080/boards'));
+      final response =
+          await http.get(Uri.parse('http://tellmebabydsm24.cafe24.com/boards'));
+      // final response = await http.get(Uri.parse('http://localhost:8080/boards'));
       if (response.statusCode == 200) {
         String body = utf8.decode(response.bodyBytes); // UTF-8로 디코딩
         List<dynamic> data = json.decode(body);
